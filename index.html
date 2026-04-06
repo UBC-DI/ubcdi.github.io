@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Université UBCDI - Accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts pour style pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset de base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+
+        /* Menu fixe */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.7);
+            padding: 15px 0;
+            z-index: 1000;
+        }
+        nav ul { list-style: none; display: flex; justify-content: center; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; font-size: 1.1em; }
+        nav ul li a:hover { text-decoration: underline; }
+
+        /* Hero section */
+        #home {
+            height: 100vh;
+            background: url('ton-image-de-fond.jpg') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        #home::before {
+            content: "";
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.5); /* fondu sombre pour lisibilité */
+        }
+        #home .content {
+            position: relative;
+            max-width: 900px;
+            z-index: 1;
+        }
+        #home h1 { font-size: 3em; margin-bottom: 20px; }
+        #home p { font-size: 1.5em; min-height: 50px; margin-bottom: 30px; }
+
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 1.1em;
+            color: white;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: #003d80; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menu -->
+    <nav>
+        <ul>
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#programs">Formations</a></li>
+            <li><a href="#news">Actualités</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="content">
+            <h1>Université des Bâtisseurs du Congo</h1>
+            <p id="animated-text"></p>
+            <a href="#about" class="btn">Découvrir l'université</a>
+            <a href="#news" class="btn">Actualités</a>
+        </div>
+    </section>
+
+    <!-- Sections exemple (À propos) pour scroll -->
+    <section id="about" style="height:100vh; display:flex; align-items:center; justify-content:center; text-align:center;">
+        <div>
+            <h2>À propos de nous</h2>
+            <p>Notre mission est de former des leaders pour le développement et l’innovation au Congo.</p>
+        </div>
+    </section>
+
+    <script>
+        // Animation texte diaporama
+        const messages = [
+            "Bienvenue à l'Université UBCDI",
+            "Formons les leaders de demain",
+            "Innovation et Développement au Congo"
+        ];
+        let i = 0;
+        let j = 0;
+        let currentText = "";
+        let isDeleting = false;
+        const speed = 100; // vitesse écriture
+
+        function type() {
+            const fullText = messages[i];
+            if (!isDeleting) {
+                currentText = fullText.substring(0, j+1);
+                j++;
+            } else {
+                currentText = fullText.substring(0, j-1);
+                j--;
+            }
+            document.getElementById("animated-text").textContent = currentText;
+
+            if(!isDeleting && j === fullText.length){
+                isDeleting = true;
+                setTimeout(type, 1500);
+            } else if(isDeleting && j === 0){
+                isDeleting = false;
+                i = (i+1) % messages.length;
+            }
+            setTimeout(type, speed);
+        }
+
+        type();
+    </script>
+
+</body>
+</html>
