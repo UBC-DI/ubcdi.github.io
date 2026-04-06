@@ -102,41 +102,57 @@
     </section>
 
     <script>
-        // Animation texte diaporama
-        const messages = [
-            "Bienvenue à l'Université UBC-DI",
-            "Formons les leaders de demain",
-            "Innovation et Développement au Congo"
-        ];
-        let i = 0;
-        let j = 0;
-        let currentText = "";
-        let isDeleting = false;
-        const speed = 120; // vitesse écriture
+const messages = [
+    "Bienvenue à l’Université UBCDI",
+    "Excellence - Innovation - Développement",
+    "Former les bâtisseurs de demain"
+];
 
-        function type() {
-            const fullText = messages[i];
-            if (!isDeleting) {
-                currentText = fullText.substring(0, j+1);
-                j++;
-            } else {
-                currentText = fullText.substring(0, j-1);
-                j--;
-            }
-            document.getElementById("animated-text").textContent = currentText;
+let i = 0;
+let j = 0;
+let currentText = "";
+let isDeleting = false;
 
-            if(!isDeleting && j === fullText.length){
-                isDeleting = true;
-                setTimeout(type, 150);
-            } else if(isDeleting && j === 0){
-                isDeleting = false;
-                i = (i+1) % messages.length;
-            }
-            setTimeout(type, speed);
-        }
+const speed = 180;        // vitesse écriture (plus lent)
+const eraseSpeed = 100;   // vitesse effacement
+const pauseTime = 2000;   // pause quand texte complet
 
-        type();
-    </script>
+function type() {
+    const fullText = messages[i];
+
+    if (!isDeleting) {
+        currentText = fullText.substring(0, j + 1);
+        j++;
+    } else {
+        currentText = fullText.substring(0, j - 1);
+        j--;
+    }
+
+    document.getElementById("animated-text").textContent = currentText;
+
+    let timeout = speed;
+
+    // Quand le texte est complet
+    if (!isDeleting && j === fullText.length) {
+        timeout = pauseTime; // pause
+        isDeleting = true;
+    }
+    // Quand tout est effacé
+    else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % messages.length;
+        timeout = 500; // petite pause avant nouveau texte
+    }
+    // Vitesse différente pour effacement
+    else if (isDeleting) {
+        timeout = eraseSpeed;
+    }
+
+    setTimeout(type, timeout);
+}
+
+type();
+</script>
 
 </body>
 </html>
