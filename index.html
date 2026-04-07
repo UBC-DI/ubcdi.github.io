@@ -1,167 +1,244 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Université UBC-DI - Accueil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Fonts pour style pro -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UBC-DI - Université des Bâtisseurs du Congo</title>
 
-    <style>
-        /* Reset de base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-        /* Menu fixe */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background: rgba(0,0,0,0.7);
-            padding: 15px 0;
-            z-index: 1000;
-        }
-        nav ul { list-style: none; display: flex; justify-content: center; }
-        nav ul li { margin: 0 20px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; font-size: 1.1em; }
-        nav ul li a:hover { text-decoration: underline; }
+<style>
 
-        /* Hero section */
-        #home {
-            height: 100vh;
-            background: url('campus.png') no-repeat center center/cover;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-        #home::before {
-            content: "";
-            position: absolute;
-            top:0; left:0; right:0; bottom:0;
-            background: rgba(0,0,0,0.5); /* fondu sombre pour lisibilité */
-        }
-        #home .content {
-            position: relative;
-            max-width: 900px;
-            z-index: 1;
-        }
-        #home h1 { font-size: 3em; margin-bottom: 20px; }
-        #home p { font-size: 1.5em; min-height: 50px; margin-bottom: 30px; }
+/* RESET */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Roboto', sans-serif; scroll-behavior:smooth;}
 
-        /* Boutons */
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 10px;
-            font-size: 1.1em;
-            color: white;
-            background-color: #0056b3;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-        .btn:hover { background-color: #003d80; }
+/* MENU */
+nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#002147;
+    padding:15px;
+    z-index:1000;
+}
+nav ul {
+    display:flex;
+    justify-content:center;
+    list-style:none;
+}
+nav ul li {margin:0 15px;}
+nav ul li a {
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+nav ul li a:hover {text-decoration:underline;}
 
-    </style>
-</head>
-<body>
-
-    <!-- Menu -->
-    <nav>
-        <ul>
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#programs">Organisation académique</a></li>
-            <li><a href="#news">Actualités</a></li>
-            <li><a href="#admission">Inscriptions</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home">
-        <div class="content">
-            <h1>Université des Bâtisseurs du Congo</h1>
-            <p id="animated-text"></p>
-            <a href="#about" class="btn">Découvrir l'université</a>
-            <a href="#news" class="btn"> Nos actualités</a>
-        </div>
- <section id="contact" style="padding:50px; background-color:#f8f8f8;">
-  <h2 style="text-align:center; color:#003366;">Contactez-nous</h2>
-  <p style="text-align:center;">Envoyez-nous un message directement depuis le site !</p>
-
-  <form action="https://formspree.io/f/xnjowqrb" method="POST" style="max-width:500px; margin:auto; display:flex; flex-direction:column;">
-    
-    <label for="name">Votre nom</label>
-    <input type="text" id="name" name="name" placeholder="Votre nom" required style="padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;">
-
-    <label for="email">Votre email (optionnel)</label>
-    <input type="email" id="email" name="_replyto" placeholder="Votre email" style="padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;">
-
-    <label for="message">Votre message</label>
-    <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message ici..." required style="padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;"></textarea>
-
-    <button type="submit" style="padding:12px; background-color:#003366; color:white; border:none; border-radius:5px; cursor:pointer; font-size:16px;">
-      Envoyer
-    </button>
-  </form>
-</section>
-    <script>
-const messages = [
-    "Bienvenue à l’Université UBC-DI",
-    "Excellence - Innovation - Développement",
-    "Former les bâtisseurs de demain",
-    "Savoir pour Agir, Bâtir pour Servir"
-];
-
-let i = 0;
-let j = 0;
-let currentText = "";
-let isDeleting = false;
-
-const speed = 180;        // vitesse écriture (plus lent)
-const eraseSpeed = 100;   // vitesse effacement
-const pauseTime = 2000;   // pause quand texte complet
-
-function type() {
-    const fullText = messages[i];
-
-    if (!isDeleting) {
-        currentText = fullText.substring(0, j + 1);
-        j++;
-    } else {
-        currentText = fullText.substring(0, j - 1);
-        j--;
-    }
-
-    document.getElementById("animated-text").textContent = currentText;
-
-    let timeout = speed;
-
-    // Quand le texte est complet
-    if (!isDeleting && j === fullText.length) {
-        timeout = pauseTime; // pause
-        isDeleting = true;
-    }
-    // Quand tout est effacé
-    else if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % messages.length;
-        timeout = 500; // petite pause avant nouveau texte
-    }
-    // Vitesse différente pour effacement
-    else if (isDeleting) {
-        timeout = eraseSpeed;
-    }
-
-    setTimeout(type, timeout);
+/* SECTIONS */
+section {
+    padding:100px 20px;
 }
 
+/* HERO */
+#home {
+    height:100vh;
+    background:url('images/campus.png') no-repeat center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+#home::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+}
+#home .content {
+    position:relative;
+}
+
+/* TITRES */
+h1 {font-size:3em; margin-bottom:15px;}
+h2 {
+    text-align:center;
+    margin-bottom:30px;
+    color:#002147;
+}
+h3 {margin-bottom:10px;}
+
+/* TEXTE */
+p {
+    max-width:900px;
+    margin:10px auto;
+    font-size:18px;
+    text-align:justify;
+}
+
+/* BOUTONS */
+.btn {
+    display:inline-block;
+    margin:10px;
+    padding:12px 25px;
+    background:#0056b3;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+.btn:hover {background:#003d80;}
+
+/* CARTES */
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.card {
+    background:white;
+    padding:20px;
+    margin:15px;
+    width:250px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* BACKGROUND */
+.bg-light {background:#f5f7fa;}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<nav>
+<ul>
+<li><a href="#home">Accueil</a></li>
+<li><a href="#about">À propos</a></li>
+<li><a href="#programs">Organisation académique</a></li>
+<li><a href="#news">Actualités</a></li>
+<li><a href="#admission">Inscriptions</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- ACCUEIL -->
+<section id="home">
+<div class="content">
+<h1>Université des Bâtisseurs du Congo</h1>
+<p id="animated-text"></p>
+<a href="#about" class="btn">Découvrir</a>
+<a href="#admission" class="btn">S'inscrire</a>
+</div>
+</section>
+
+<!-- A PROPOS -->
+<section id="about" class="bg-light">
+<h2>À propos</h2>
+
+<p>
+L’Université des Bâtisseurs du Congo pour le Développement et l’Innovation (UBC-DI) est une institution dédiée à la formation des leaders capables de transformer durablement la société congolaise.
+</p>
+
+<p>
+À travers sa devise <strong>« Savoir pour Agir, Bâtir pour Servir »</strong>, elle combine excellence académique et action concrète sur le terrain.
+</p>
+
+<div class="grid">
+<div class="card">
+<h3>Mission</h3>
+<p>Former des professionnels compétents et responsables.</p>
+</div>
+
+<div class="card">
+<h3>Vision</h3>
+<p>Devenir une référence africaine en innovation.</p>
+</div>
+
+<div class="card">
+<h3>Valeurs</h3>
+<p>Excellence, patriotisme, solidarité.</p>
+</div>
+</div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programs">
+<h2>Organisation académique</h2>
+
+<div class="grid">
+<div class="card"><h3>Ingénierie</h3><p>Solutions techniques modernes.</p></div>
+<div class="card"><h3>Droit humanitaire</h3><p>Justice et droits humains.</p></div>
+<div class="card"><h3>Psychologie</h3><p>Accompagnement humain.</p></div>
+<div class="card"><h3>Management</h3><p>Gestion du développement.</p></div>
+</div>
+</section>
+
+<!-- ACTUALITES -->
+<section id="news" class="bg-light">
+<h2>Actualités</h2>
+
+<div class="grid">
+<div class="card"><h3>Ouverture</h3><p>Lancement officiel prochain.</p></div>
+<div class="card"><h3>Partenariats</h3><p>Collaborations en cours.</p></div>
+<div class="card"><h3>Inscriptions</h3><p>Ouvertes dès maintenant.</p></div>
+</div>
+</section>
+
+<!-- ADMISSION -->
+<section id="admission">
+<h2>Inscriptions</h2>
+
+<p style="text-align:center;">
+Cliquez sur le bouton ci-dessous pour remplir le formulaire d’inscription en ligne.
+</p>
+
+<div style="text-align:center;">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeohmULnhkSKwq2NVlaaQk-XxVlErOcRC3SkHRAziyGIRioFw/viewform?usp=publish-editor" target="_blank" class="btn">
+Accéder au formulaire
+</a>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-light">
+<h2>Contact</h2>
+
+<form action="https://formspree.io/f/xnjowqrb" method="POST" style="max-width:500px; margin:auto; display:flex; flex-direction:column;">
+<input type="text" name="name" placeholder="Votre nom" required style="padding:10px; margin-bottom:10px;">
+<input type="email" name="_replyto" placeholder="Votre email" style="padding:10px; margin-bottom:10px;">
+<textarea name="message" rows="5" placeholder="Votre message" required style="padding:10px; margin-bottom:10px;"></textarea>
+<button type="submit" class="btn">Envoyer</button>
+</form>
+
+</section>
+
+<!-- SCRIPT TEXTE -->
+<script>
+const messages = [
+"Bienvenue à l’Université UBC-DI",
+"Former les bâtisseurs du Congo",
+"Excellence - Innovation - Développement"
+];
+
+let i=0, j=0, text="", del=false;
+
+function type(){
+let full = messages[i];
+
+text = del ? full.substring(0,--j) : full.substring(0,++j);
+document.getElementById("animated-text").textContent = text;
+
+let speed = del ? 80 : 150;
+
+if(!del && j===full.length){del=true; speed=2000;}
+else if(del && j===0){del=false; i=(i+1)%messages.length;}
+
+setTimeout(type, speed);
+}
 type();
 </script>
 
