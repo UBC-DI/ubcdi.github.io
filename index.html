@@ -127,26 +127,23 @@
     </section>
 
     <!-- Organisation académique -->
-   <section id="programs">
-    <h2 id="title-programs">Organisation académique</h2>
+  <section id="programs">
+    <h2 id="title">Organisation académique</h2>
 
     <!-- Boutons langue -->
     <div style="text-align:center; margin-bottom:20px;">
-        <button onclick="setLanguage('fr')" class="btn">🇫🇷 Français</button>
-        <button onclick="setLanguage('en')" class="btn">🇬🇧 English</button>
+        <button onclick="setLang('fr')">🇫🇷 Français</button>
+        <button onclick="setLang('en')">🇬🇧 English</button>
     </div>
 
     <style>
-        .accordion {
-            max-width: 1000px;
-            margin: auto;
-        }
+        .accordion { max-width: 900px; margin: auto; }
 
         .accordion-item {
             margin-bottom: 15px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .accordion-header {
@@ -159,97 +156,161 @@
             justify-content: space-between;
         }
 
-        .f1 { background: linear-gradient(45deg, #003366, #0056b3); }
-        .f2 { background: linear-gradient(45deg, #006633, #00a86b); }
-        .f3 { background: linear-gradient(45deg, #800000, #cc0000); }
-        .f4 { background: linear-gradient(45deg, #4b0082, #8a2be2); }
-        .f5 { background: linear-gradient(45deg, #006666, #00cccc); }
-        .f6 { background: linear-gradient(45deg, #b8860b, #ffd700); color:black; }
+        .f1 { background:#003366; }
+        .f2 { background:#006633; }
+        .f3 { background:#800000; }
+        .f4 { background:#4b0082; }
+        .f5 { background:#006666; }
+        .f6 { background:#b8860b; }
 
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            background: #fff;
-            transition: max-height 0.5s ease;
+            background: #f9f9f9;
+            transition: max-height 0.4s ease;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            font-size: 14px;
-        }
-
-        th { background: #f0f0f0; }
+        ul { padding: 15px; }
+        li { margin-bottom: 8px; }
     </style>
 
     <div class="accordion">
 
-        <!-- FACULTE 1 -->
+        <!-- 1 -->
         <div class="accordion-item">
             <div class="accordion-header f1">
-                <span class="fr">🎓 Sciences de l’Homme</span>
-                <span class="en">🎓 Human Sciences</span>
+                <span class="fr">Sciences de l’Homme</span>
+                <span class="en">Human Sciences</span>
                 <span>+</span>
             </div>
-
             <div class="accordion-content">
-                <table>
-                    <tr>
-                        <th class="fr">Filière</th>
-                        <th class="en">Program</th>
-                        <th class="fr">Débouchés</th>
-                        <th class="en">Careers</th>
-                    </tr>
-                    <tr>
-                        <td>Psychologie</td>
-                        <td>Psychology</td>
-                        <td>Psychologue</td>
-                        <td>Psychologist</td>
-                    </tr>
-                    <tr>
-                        <td>Communication</td>
-                        <td>Communication</td>
-                        <td>Chargé communication</td>
-                        <td>Communication Officer</td>
-                    </tr>
-                </table>
+                <ul>
+                    <li class="fr">Sciences de l’Éducation</li>
+                    <li class="en">Education Sciences</li>
+
+                    <li class="fr">Technologies de l’Éducation</li>
+                    <li class="en">Educational Technologies</li>
+
+                    <li class="fr">Psychologie Clinique</li>
+                    <li class="en">Clinical Psychology</li>
+
+                    <li class="fr">Communication des Organisations</li>
+                    <li class="en">Organizational Communication</li>
+                </ul>
             </div>
         </div>
 
-        <!-- FACULTE 2 -->
+        <!-- 2 -->
         <div class="accordion-item">
             <div class="accordion-header f2">
-                <span class="fr">💼 Sciences Économiques</span>
-                <span class="en">💼 Economics & Management</span>
+                <span class="fr">Sciences Économiques et de Gestion</span>
+                <span class="en">Economics & Management</span>
                 <span>+</span>
             </div>
-
             <div class="accordion-content">
-                <table>
-                    <tr>
-                        <th class="fr">Filière</th>
-                        <th class="en">Program</th>
-                        <th class="fr">Débouchés</th>
-                        <th class="en">Careers</th>
-                    </tr>
-                    <tr>
-                        <td>Management</td>
-                        <td>Management</td>
-                        <td>Manager</td>
-                        <td>Manager</td>
-                    </tr>
-                    <tr>
-                        <td>Finance</td>
-                        <td>Finance</td>
-                        <td>Comptable</td>
-                        <td>Accountant</td>
-                    </tr>
-                </table>
+                <ul>
+                    <li class="fr">Management</li>
+                    <li class="en">Management</li>
+
+                    <li class="fr">Finance et Comptabilité</li>
+                    <li class="en">Finance & Accounting</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="accordion-item">
+            <div class="accordion-header f3">
+                <span class="fr">Développement et Action Humanitaire</span>
+                <span class="en">Development & Humanitarian Action</span>
+                <span>+</span>
+            </div>
+            <div class="accordion-content">
+                <ul>
+                    <li class="fr">Gestion des ONG</li>
+                    <li class="en">NGO Management</li>
+
+                    <li class="fr">Genre et Développement</li>
+                    <li class="en">Gender & Development</li>
+
+                    <li class="fr">Action Humanitaire</li>
+                    <li class="en">Humanitarian Action</li>
+
+                    <li class="fr">Développement Communautaire</li>
+                    <li class="en">Community Development</li>
+
+                    <li class="fr">Suivi-Évaluation de Projets</li>
+                    <li class="en">Monitoring & Evaluation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="accordion-item">
+            <div class="accordion-header f4">
+                <span class="fr">Sciences et Technologie</span>
+                <span class="en">Science & Technology</span>
+                <span>+</span>
+            </div>
+            <div class="accordion-content">
+                <ul>
+                    <li class="fr">Génie Civil</li>
+                    <li class="en">Civil Engineering</li>
+
+                    <li class="fr">Génie Chimique et des Procédés</li>
+                    <li class="en">Chemical Engineering</li>
+
+                    <li class="fr">Génie de l’Environnement</li>
+                    <li class="en">Environmental Engineering</li>
+
+                    <li class="fr">Génie des Systèmes et Réseaux</li>
+                    <li class="en">Networks & Systems</li>
+
+                    <li class="fr">Génie Informatique</li>
+                    <li class="en">Computer Engineering</li>
+
+                    <li class="fr">Génie Électrique et Électronique</li>
+                    <li class="en">Electrical Engineering</li>
+
+                    <li class="fr">Génie Mécanique</li>
+                    <li class="en">Mechanical Engineering</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="accordion-item">
+            <div class="accordion-header f5">
+                <span class="fr">Santé Publique</span>
+                <span class="en">Public Health</span>
+                <span>+</span>
+            </div>
+            <div class="accordion-content">
+                <ul>
+                    <li class="fr">Santé Communautaire et Épidémiologie</li>
+                    <li class="en">Community Health & Epidemiology</li>
+
+                    <li class="fr">Nutrition</li>
+                    <li class="en">Nutrition</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="accordion-item">
+            <div class="accordion-header f6">
+                <span class="fr">Gouvernance et Droits</span>
+                <span class="en">Governance & Law</span>
+                <span>+</span>
+            </div>
+            <div class="accordion-content">
+                <ul>
+                    <li class="fr">Droit International Humanitaire</li>
+                    <li class="en">International Humanitarian Law</li>
+
+                    <li class="fr">Décentralisation et Administration Électorale</li>
+                    <li class="en">Decentralization & Electoral Administration</li>
+                </ul>
             </div>
         </div>
 
@@ -263,6 +324,7 @@
             const content = item.querySelector(".accordion-content");
 
             header.addEventListener("click", () => {
+
                 items.forEach(i => {
                     if (i !== item) {
                         i.querySelector(".accordion-content").style.maxHeight = null;
@@ -280,20 +342,18 @@
             });
         });
 
-        function setLanguage(lang) {
-            document.querySelectorAll('.fr').forEach(el => el.style.display = (lang === 'fr') ? 'inline' : 'none');
-            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'inline' : 'none');
+        function setLang(lang){
+            document.querySelectorAll('.fr').forEach(el => el.style.display = (lang==='fr')?'inline':'none');
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang==='en')?'inline':'none');
 
-            document.getElementById("title-programs").textContent =
-                (lang === 'fr') ? "Organisation académique" : "Academic Programs";
+            document.getElementById("title").textContent =
+                (lang==='fr') ? "Organisation académique" : "Academic Programs";
         }
 
-        // langue par défaut
-        setLanguage('fr');
+        setLang('fr');
     </script>
 
 </section>
-
     <!-- Actualités -->
     <section id="news">
         <h2>Actualités</h2>
