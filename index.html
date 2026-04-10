@@ -127,17 +127,172 @@
     </section>
 
     <!-- Organisation académique -->
-    <section id="programs">
-        <h2>Organisation académique</h2>
-        <p>Notre université offre des filières variées et adaptées aux besoins du développement local :</p>
-        <ul>
-            <li>Ingénierie et Technologies</li>
-            <li>Droit Humanitaire</li>
-            <li>Psychologie et Sciences Sociales</li>
-            <li>Management du Développement</li>
-        </ul>
-        <p>Chaque programme est conçu pour former des leaders capables de contribuer activement à la société et aux entreprises locales.</p>
-    </section>
+   <section id="programs">
+    <h2 id="title-programs">Organisation académique</h2>
+
+    <!-- Boutons langue -->
+    <div style="text-align:center; margin-bottom:20px;">
+        <button onclick="setLanguage('fr')" class="btn">🇫🇷 Français</button>
+        <button onclick="setLanguage('en')" class="btn">🇬🇧 English</button>
+    </div>
+
+    <style>
+        .accordion {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .accordion-header {
+            padding: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .f1 { background: linear-gradient(45deg, #003366, #0056b3); }
+        .f2 { background: linear-gradient(45deg, #006633, #00a86b); }
+        .f3 { background: linear-gradient(45deg, #800000, #cc0000); }
+        .f4 { background: linear-gradient(45deg, #4b0082, #8a2be2); }
+        .f5 { background: linear-gradient(45deg, #006666, #00cccc); }
+        .f6 { background: linear-gradient(45deg, #b8860b, #ffd700); color:black; }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background: #fff;
+            transition: max-height 0.5s ease;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        th { background: #f0f0f0; }
+    </style>
+
+    <div class="accordion">
+
+        <!-- FACULTE 1 -->
+        <div class="accordion-item">
+            <div class="accordion-header f1">
+                <span class="fr">🎓 Sciences de l’Homme</span>
+                <span class="en">🎓 Human Sciences</span>
+                <span>+</span>
+            </div>
+
+            <div class="accordion-content">
+                <table>
+                    <tr>
+                        <th class="fr">Filière</th>
+                        <th class="en">Program</th>
+                        <th class="fr">Débouchés</th>
+                        <th class="en">Careers</th>
+                    </tr>
+                    <tr>
+                        <td>Psychologie</td>
+                        <td>Psychology</td>
+                        <td>Psychologue</td>
+                        <td>Psychologist</td>
+                    </tr>
+                    <tr>
+                        <td>Communication</td>
+                        <td>Communication</td>
+                        <td>Chargé communication</td>
+                        <td>Communication Officer</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- FACULTE 2 -->
+        <div class="accordion-item">
+            <div class="accordion-header f2">
+                <span class="fr">💼 Sciences Économiques</span>
+                <span class="en">💼 Economics & Management</span>
+                <span>+</span>
+            </div>
+
+            <div class="accordion-content">
+                <table>
+                    <tr>
+                        <th class="fr">Filière</th>
+                        <th class="en">Program</th>
+                        <th class="fr">Débouchés</th>
+                        <th class="en">Careers</th>
+                    </tr>
+                    <tr>
+                        <td>Management</td>
+                        <td>Management</td>
+                        <td>Manager</td>
+                        <td>Manager</td>
+                    </tr>
+                    <tr>
+                        <td>Finance</td>
+                        <td>Finance</td>
+                        <td>Comptable</td>
+                        <td>Accountant</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const items = document.querySelectorAll(".accordion-item");
+
+        items.forEach(item => {
+            const header = item.querySelector(".accordion-header");
+            const content = item.querySelector(".accordion-content");
+
+            header.addEventListener("click", () => {
+                items.forEach(i => {
+                    if (i !== item) {
+                        i.querySelector(".accordion-content").style.maxHeight = null;
+                        i.querySelector(".accordion-header span:last-child").textContent = "+";
+                    }
+                });
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    header.querySelector("span:last-child").textContent = "+";
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    header.querySelector("span:last-child").textContent = "−";
+                }
+            });
+        });
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.fr').forEach(el => el.style.display = (lang === 'fr') ? 'inline' : 'none');
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'inline' : 'none');
+
+            document.getElementById("title-programs").textContent =
+                (lang === 'fr') ? "Organisation académique" : "Academic Programs";
+        }
+
+        // langue par défaut
+        setLanguage('fr');
+    </script>
+
+</section>
 
     <!-- Actualités -->
     <section id="news">
