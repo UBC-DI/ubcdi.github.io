@@ -127,7 +127,7 @@
     </section>
 
     <!-- Organisation académique -->
-  <section id="programs">
+ <section id="programs">
     <h2 id="title">Organisation académique</h2>
 
     <!-- Boutons langue -->
@@ -171,7 +171,16 @@
         }
 
         ul { padding: 15px; }
-        li { margin-bottom: 8px; }
+
+        /* ✅ ALIGNEMENT VERTICAL CORRIGÉ */
+        li {
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .fr, .en {
+            display: block;
+        }
     </style>
 
     <div class="accordion">
@@ -343,8 +352,8 @@
         });
 
         function setLang(lang){
-            document.querySelectorAll('.fr').forEach(el => el.style.display = (lang==='fr')?'inline':'none');
-            document.querySelectorAll('.en').forEach(el => el.style.display = (lang==='en')?'inline':'none');
+            document.querySelectorAll('.fr').forEach(el => el.style.display = (lang==='fr')?'block':'none');
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang==='en')?'block':'none');
 
             document.getElementById("title").textContent =
                 (lang==='fr') ? "Organisation académique" : "Academic Programs";
