@@ -51,6 +51,16 @@
         #home h1 { font-size: 3em; margin-bottom: 20px; }
         #home p { font-size: 1.5em; min-height: 50px; margin-bottom: 30px; }
 
+        /* ✅ LOGOS AJOUTÉS */
+        .logo {
+            position: absolute;
+            top: 20px;
+            width: 80px;
+            z-index: 2;
+        }
+        .logo-left { left: 20px; }
+        .logo-right { right: 20px; }
+
         /* Boutons */
         .btn {
             display: inline-block;
@@ -67,7 +77,7 @@
         }
         .btn:hover { background-color: #003d80; }
 
-        /* Sections avec couleurs attractives */
+        /* Sections */
         section {
             padding: 80px 20px;
             text-align: center;
@@ -79,7 +89,6 @@
         #admission { background-color: #f5fffa; color: #004d00; }
         #contact { background-color: #f8f8f8; color: #003366; }
 
-        /* Titres des sections */
         h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
@@ -105,6 +114,11 @@
 
     <!-- Hero Section -->
     <section id="home">
+
+        <!-- ✅ LOGOS -->
+        <img src="logo.png" class="logo logo-left" alt="Logo gauche">
+        <img src="logo.png" class="logo logo-right" alt="Logo droit">
+
         <div class="content">
             <h1>Université des Bâtisseurs du Congo</h1>
             <p id="animated-text"></p>
@@ -124,321 +138,57 @@
             <li>Inculquer les valeurs de redevabilité, de patriotisme et de solidarité humaine ;</li>
             <li>Apporter des solutions innovantes aux problématiques de décentralisation et d'administration publique pour un impact réel dans nos provinces.</li>
         </ul>
+
+        <!-- ✅ AJOUT BOUTONS -->
+        <div style="margin-top:40px;">
+            <h3>L'UBC-DI organise également :</h3>
+
+            <button class="btn" onclick="showInfo('primaire')">École Primaire Solidarité</button>
+            <button class="btn" onclick="showInfo('secondaire')">Institut Technique Solidarité</button>
+            <button class="btn" onclick="showInfo('cfp')">Centre de Formation Professionnelle Amour</button>
+        </div>
+
+        <div id="infoBox" style="margin-top:30px; max-width:800px; margin:auto; text-align:left;"></div>
     </section>
 
-    <!-- Organisation académique -->
- <section id="programs">
-    <h2 id="title">Organisation académique</h2>
-
-    <!-- Boutons langue -->
-    <div style="text-align:center; margin-bottom:20px;">
-        <button onclick="setLang('fr')">🇫🇷 Français</button>
-        <button onclick="setLang('en')">🇬🇧 English</button>
-    </div>
-
-    <style>
-        .accordion { max-width: 900px; margin: auto; }
-
-        .accordion-item {
-            margin-bottom: 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .accordion-header {
-            padding: 18px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .f1 { background:#003366; }
-        .f2 { background:#006633; }
-        .f3 { background:#800000; }
-        .f4 { background:#4b0082; }
-        .f5 { background:#006666; }
-        .f6 { background:#b8860b; }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            background: #f9f9f9;
-            transition: max-height 0.4s ease;
-        }
-
-        ul { padding: 15px; }
-
-        /* ✅ ALIGNEMENT VERTICAL CORRIGÉ */
-        li {
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .fr, .en {
-            display: block;
-        }
-    </style>
-
-    <div class="accordion">
-
-        <!-- 1 -->
-        <div class="accordion-item">
-            <div class="accordion-header f1">
-                <span class="fr">Sciences de l’Homme</span>
-                <span class="en">Human Sciences</span>
-                <span>+</span>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li class="fr">Sciences de l’Éducation</li>
-                    <li class="en">Education Sciences</li>
-
-                    <li class="fr">Technologies de l’Éducation</li>
-                    <li class="en">Educational Technologies</li>
-
-                    <li class="fr">Psychologie Clinique</li>
-                    <li class="en">Clinical Psychology</li>
-
-                    <li class="fr">Communication des Organisations</li>
-                    <li class="en">Organizational Communication</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="accordion-item">
-            <div class="accordion-header f2">
-                <span class="fr">Sciences Économiques et de Gestion</span>
-                <span class="en">Economics & Management</span>
-                <span>+</span>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li class="fr">Management</li>
-                    <li class="en">Management</li>
-
-                    <li class="fr">Finance et Comptabilité</li>
-                    <li class="en">Finance & Accounting</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="accordion-item">
-            <div class="accordion-header f3">
-                <span class="fr">Développement et Action Humanitaire</span>
-                <span class="en">Development & Humanitarian Action</span>
-                <span>+</span>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li class="fr">Gestion des ONG</li>
-                    <li class="en">NGO Management</li>
-
-                    <li class="fr">Genre et Développement</li>
-                    <li class="en">Gender & Development</li>
-
-                    <li class="fr">Action Humanitaire</li>
-                    <li class="en">Humanitarian Action</li>
-
-                    <li class="fr">Développement Communautaire</li>
-                    <li class="en">Community Development</li>
-
-                    <li class="fr">Suivi-Évaluation de Projets</li>
-                    <li class="en">Monitoring & Evaluation</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="accordion-item">
-            <div class="accordion-header f4">
-                <span class="fr">Sciences et Technologie</span>
-                <span class="en">Science & Technology</span>
-                <span>+</span>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li class="fr">Génie Civil</li>
-                    <li class="en">Civil Engineering</li>
-
-                    <li class="fr">Génie Chimique et des Procédés</li>
-                    <li class="en">Chemical Engineering</li>
-
-                    <li class="fr">Génie de l’Environnement</li>
-                    <li class="en">Environmental Engineering</li>
-
-                    <li class="fr">Génie des Systèmes et Réseaux</li>
-                    <li class="en">Networks & Systems</li>
-
-                    <li class="fr">Génie Informatique</li>
-                    <li class="en">Computer Engineering</li>
-
-                    <li class="fr">Génie Électrique et Électronique</li>
-                    <li class="en">Electrical Engineering</li>
-
-                    <li class="fr">Génie Mécanique</li>
-                    <li class="en">Mechanical Engineering</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="accordion-item">
-            <div class="accordion-header f5">
-                <span class="fr">Santé Publique</span>
-                <span class="en">Public Health</span>
-                <span>+</span>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li class="fr">Santé Communautaire et Épidémiologie</li>
-                    <li class="en">Community Health & Epidemiology</li>
-
-                    <li class="fr">Nutrition</li>
-                    <li class="en">Nutrition</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="accordion-item">
-            <div class="accordion-header f6">
-                <span class="fr">Gouvernance et Droits</span>
-                <span class="en">Governance & Law</span>
-                <span>+</span>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li class="fr">Droit International Humanitaire</li>
-                    <li class="en">International Humanitarian Law</li>
-
-                    <li class="fr">Décentralisation et Administration Électorale</li>
-                    <li class="en">Decentralization & Electoral Administration</li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-
+    <!-- SCRIPT AJOUTÉ -->
     <script>
-        const items = document.querySelectorAll(".accordion-item");
+    function showInfo(type){
+        let content = "";
 
-        items.forEach(item => {
-            const header = item.querySelector(".accordion-header");
-            const content = item.querySelector(".accordion-content");
-
-            header.addEventListener("click", () => {
-
-                items.forEach(i => {
-                    if (i !== item) {
-                        i.querySelector(".accordion-content").style.maxHeight = null;
-                        i.querySelector(".accordion-header span:last-child").textContent = "+";
-                    }
-                });
-
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    header.querySelector("span:last-child").textContent = "+";
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    header.querySelector("span:last-child").textContent = "−";
-                }
-            });
-        });
-
-        function setLang(lang){
-            document.querySelectorAll('.fr').forEach(el => el.style.display = (lang==='fr')?'block':'none');
-            document.querySelectorAll('.en').forEach(el => el.style.display = (lang==='en')?'block':'none');
-
-            document.getElementById("title").textContent =
-                (lang==='fr') ? "Organisation académique" : "Academic Programs";
+        if(type === "primaire"){
+            content = `
+            <h3>École Primaire Solidarité</h3>
+            <p>Formation de base solide avec discipline et excellence.</p>`;
         }
 
-        setLang('fr');
-    </script>
-
-</section>
-    <!-- Actualités -->
-    <section id="news">
-        <h2>Actualités</h2>
-        <p>Restez informé des événements, conférences et initiatives de l'UBC-DI :</p>
-        <ul>
-            <li>Ouverture officielle du campus et cérémonie d’inauguration</li>
-            <li>Conférences internationales sur le développement et l’innovation</li>
-            <li>Programmes de recherche en ingénierie et sciences sociales</li>
-        </ul>
-    </section>
-
-    <!-- Inscriptions -->
-    <section id="admission">
-        <h2>Inscriptions en ligne</h2>
-        <p>Inscrivez-vous dès maintenant à l'UBC-DI pour rejoindre nos programmes. Toutes les informations seront envoyées directement dans notre base des données.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeohmULnhkSKwq2NVlaaQk-XxVlErOcRC3SkHRAziyGIRioFw/viewform?usp=publish-editor" class="btn" target="_blank">Remplir le formulaire d'inscription</a>
-        <p>Les étudiants inscrits recevront un numéro de matricule automatique et toutes les données seront accessibles pour le suivi et gestion dans notre formulaire google.</p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <p>Envoyez-nous un message directement depuis le site !</p>
-
-        <form action="https://formspree.io/f/xnjowqrb" method="POST" style="max-width:500px; margin:auto; display:flex; flex-direction:column;">
-            
-            <label for="name">Votre nom</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required style="padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;">
-
-            <label for="email">Votre email (optionnel)</label>
-            <input type="email" id="email" name="_replyto" placeholder="Votre email" style="padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;">
-
-            <label for="message">Votre message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message ici..." required style="padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;"></textarea>
-
-            <button type="submit" style="padding:12px; background-color:#003366; color:white; border:none; border-radius:5px; cursor:pointer; font-size:16px;">
-            Envoyer
-            </button>
-        </form>
-    </section>
-
-    <script>
-        const messages = [
-            "Bienvenue à l’Université UBC-DI",
-            "Excellence - Innovation - Développement",
-            "Former les bâtisseurs de demain",
-            "Savoir pour Agir, Bâtir pour Servir"
-        ];
-
-        let i = 0;
-        let j = 0;
-        let currentText = "";
-        let isDeleting = false;
-
-        const speed = 180;
-        const eraseSpeed = 100;
-        const pauseTime = 2000;
-
-        function type() {
-            const fullText = messages[i];
-            if (!isDeleting) {
-                currentText = fullText.substring(0, j + 1);
-                j++;
-            } else {
-                currentText = fullText.substring(0, j - 1);
-                j--;
-            }
-            document.getElementById("animated-text").textContent = currentText;
-            let timeout = speed;
-            if (!isDeleting && j === fullText.length) { timeout = pauseTime; isDeleting = true; }
-            else if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % messages.length; timeout = 500; }
-            else if (isDeleting) { timeout = eraseSpeed; }
-            setTimeout(type, timeout);
+        if(type === "secondaire"){
+            content = `
+            <h3>Institut Technique Professionnel Solidarité</h3>
+            <ul>
+                <li>Cycle d’orientation</li>
+                <li>Technique sociale</li>
+                <li>Nutrition</li>
+                <li>Électricité générale</li>
+                <li>Mécanique automobile</li>
+            </ul>`;
         }
 
-        type();
+        if(type === "cfp"){
+            content = `
+            <h3>Centre de Formation Professionnelle Amour</h3>
+            <ul>
+                <li>Informatique</li>
+                <li>Mécanique automobile</li>
+                <li>Langues</li>
+            </ul>
+            <p><strong>Adresse :</strong><br>
+            Quartier Mabanga, Avenue Mutongo, N° 37<br>
+            Goma, Nord-Kivu</p>`;
+        }
+
+        document.getElementById("infoBox").innerHTML = content;
+    }
     </script>
 
 </body>
