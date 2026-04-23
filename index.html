@@ -113,18 +113,99 @@
         </div>
     </section>
 
-    <!-- À propos -->
-    <section id="about">
-        <h2>À propos de l'UBC-DI</h2>
-        <p>Il est créé en République Démocratique du Congo une institution universitaire dénommée « Université des Bâtisseurs du Congo pour le Développement et l’Innovation » (UBC-DI).</p>
-        <p>L'UBC-DI se donne pour mission de réconcilier le savoir académique avec les réalités du terrain. Elle n'est pas seulement un lieu de transmission de connaissances, mais une forge où se préparent les futurs bâtisseurs de la nation.</p>
-        <p>À travers son triptyque <strong>« Savoir pour Agir, Bâtir pour Servir »</strong>, l'institution s'engage à :</p>
-        <ul>
-            <li>Promouvoir l’excellence dans les domaines de l'ingénierie, du droit humanitaire, de la psychologie et du management de développement ;</li>
-            <li>Inculquer les valeurs de redevabilité, de patriotisme et de solidarité humaine ;</li>
-            <li>Apporter des solutions innovantes aux problématiques de décentralisation et d'administration publique pour un impact réel dans nos provinces.</li>
-        </ul>
-    </section>
+   <!-- À propos -->
+<section id="about">
+    <h2>À propos de l'UBC-DI</h2>
+    <p>Il est créé en République Démocratique du Congo une institution universitaire dénommée « Université des Bâtisseurs du Congo pour le Développement et l’Innovation » (UBC-DI).</p>
+    <p>L'UBC-DI se donne pour mission de réconcilier le savoir académique avec les réalités du terrain. Elle n'est pas seulement un lieu de transmission de connaissances, mais une forge où se préparent les futurs bâtisseurs de la nation.</p>
+    <p>À travers son triptyque <strong>« Savoir pour Agir, Bâtir pour Servir »</strong>, l'institution s'engage à :</p>
+    <ul>
+        <li>Promouvoir l’excellence dans les domaines de l'ingénierie, du droit humanitaire, de la psychologie et du management de développement ;</li>
+        <li>Inculquer les valeurs de redevabilité, de patriotisme et de solidarité humaine ;</li>
+        <li>Apporter des solutions innovantes aux problématiques de décentralisation et d'administration publique pour un impact réel dans nos provinces.</li>
+    </ul>
+
+    <!-- ✅ AJOUT PROFESSIONNEL -->
+    <div style="margin-top:50px;">
+        <h3>L'UBC-DI organise également :</h3>
+
+        <div style="text-align:center;">
+            <button class="btn" onclick="showInfo('primaire')">École Primaire Solidarité</button>
+            <button class="btn" onclick="showInfo('secondaire')">Institut Technique Solidarité</button>
+            <button class="btn" onclick="showInfo('cfp')">Centre de Formation Professionnelle Amour</button>
+        </div>
+
+        <div id="infoBox" style="margin-top:30px; max-width:800px; margin:auto; text-align:left; background:white; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);"></div>
+    </div>
+
+    <!-- ✅ SCRIPT -->
+    <script>
+    function showInfo(type){
+        let content = "";
+
+        if(type === "primaire"){
+            content = `
+            <h3>École Primaire Solidarité</h3>
+            <p>L'École Primaire Solidarité constitue la base du parcours éducatif en offrant une formation complète axée sur l’excellence académique, la discipline et les valeurs humaines.</p>
+            <ul>
+                <li>Encadrement pédagogique de qualité</li>
+                <li>Formation morale et civique</li>
+                <li>Développement de la créativité et des talents</li>
+                <li>Préparation solide pour l’enseignement secondaire</li>
+            </ul>`;
+        }
+
+        if(type === "secondaire"){
+            content = `
+            <h3>Institut Technique Professionnel Solidarité</h3>
+            <p>L’Institut forme des jeunes compétents et autonomes grâce à une approche pratique adaptée aux réalités professionnelles.</p>
+
+            <h4>Cycles organisés :</h4>
+            <ul>
+                <li>Cycle d’orientation</li>
+                <li>Cycle secondaire long :
+                    <ul>
+                        <li>Technique sociale</li>
+                        <li>Nutrition</li>
+                        <li>Électricité générale</li>
+                        <li>Mécanique générale</li>
+                        <li>Mécanique automobile</li>
+                    </ul>
+                </li>
+                <li>Cycle court :
+                    <ul>
+                        <li>Mécanique automobile (3 ans)</li>
+                    </ul>
+                </li>
+            </ul>`;
+        }
+
+        if(type === "cfp"){
+            content = `
+            <h3>Centre de Formation Professionnelle Amour</h3>
+            <p>Sous gestion du Ministère de la Formation Professionnelle, Arts et Métiers, ce centre offre des formations pratiques pour une insertion rapide dans le monde professionnel.</p>
+
+            <ul>
+                <li>Coupe et couture</li>
+                <li>Informatique</li>
+                <li>Mécanique automobile</li>
+                <li>Étude des langues</li>
+                <li>Ajustage et soudure</li>
+            </ul>
+
+            <h4>Adresse :</h4>
+            <p>
+            Siège social : Quartier Mabanga, Avenue Mutongo, N° 37<br>
+            Commune de Karisimbi, Ville de Goma<br>
+            Province du Nord-Kivu, République Démocratique du Congo
+            </p>`;
+        }
+
+        document.getElementById("infoBox").innerHTML = content;
+    }
+    </script>
+
+</section>
 
     <!-- Organisation académique -->
  <section id="programs">
